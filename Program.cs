@@ -12,12 +12,6 @@ namespace CSC240_04_01_ExceptionsOnPurpose_NGM
             int result;
             int zero = 0;
 
-            Write("Enter an integer >> ");
-            answer = Convert.ToInt32(ReadLine());
-
-            result = answer / zero;
-            WriteLine("The answer is " + answer);
-            
             //exercise 2
             try
             {
@@ -25,11 +19,18 @@ namespace CSC240_04_01_ExceptionsOnPurpose_NGM
                 answer = Convert.ToInt32(ReadLine());
                 result = answer / zero;
             }
-            catch (Exception e)
+            //exercise 3
+
+            catch (FormatException e)
             {
-                WriteLine(e.Message);
+                WriteLine("You did not enter an integer.");
             }
-            
+            catch (DivideByZeroException e)
+            {
+                WriteLine("This is not your fault.");
+                WriteLine("You entered the integer correctly.");
+                WriteLine("The program divides by zero.");
+            }
         }
     }
 }
